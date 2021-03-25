@@ -26,7 +26,10 @@ body{
 	margin-left: 10px;
 }
 .container input{
-	width: 100%;
+	width: 100%;	
+}
+.container ul.todo input{
+	width: 60%;
 }
 .container ul span.middleLine{
 	text-decoration-line: line-through;

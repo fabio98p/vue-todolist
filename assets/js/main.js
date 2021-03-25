@@ -9,18 +9,22 @@ document.addEventListener('DOMContentLoaded', function () {
 				{
 					todoText: 'vai in bagno',
 					todoFinished: 'nope',
+					todoInEdit: false,
 				},
 				{
 					todoText: 'fai la spesa',
 					todoFinished: 'nope',
+					todoInEdit: false,
 				},
 				{
 					todoText: 'compra il pane',
 					todoFinished: 'nope',
+					todoInEdit: false,
 				},
 				{
 					todoText: 'osserva la pizza',
 					todoFinished: 'nope',
+					todoInEdit: false,
 				},
 			],
 
@@ -33,22 +37,30 @@ document.addEventListener('DOMContentLoaded', function () {
 					this.listTodo.push({
 						todoText: this.newTextTodo,
 						todoFinished: 'nope',
+						todoInEdit: false,
 					})
 					this.newTextTodo = '';
 				}
 			},
-			editTodo: function name() {
-				console.log('edit');
-			},
-			checkTodo: function name(todo) {
-				console.log('check', todo);
-				todo.todoFinished = 'yep'
-				console.log(this.listTodo);
-			},
-			removeTodo: function name() {
-				console.log('remove');
+
+			editTodo: function (todo) {
+				if (todo.todoInEdit) {
+					todo.todoInEdit = false;
+				} else {
+					todo.todoInEdit = true;
+				}
 			},
 
+
+			checkTodo: function name(todo) {
+				console.log(todo);
+				todo.todoFinished = 'yep'
+			},
+
+			removeTodo: function name(todo) {
+				console.log(todo);
+				this.listTodo.splice(this.listTodo.indexOf(todo), 1)
+			},
 		},
 		computed: {
 			orderedlistTodo: function () {
@@ -56,9 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
 				let todoFinished = this.listTodo.filter((e) => e.todoFinished == 'yep')
 				return [...todoNotFinished, ...todoFinished]
 			}
-		},
-		created: function () {
-
 		},
 	})
 });
