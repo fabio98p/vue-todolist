@@ -15,13 +15,13 @@
 		<div class="container">
 			<h1>i miei todo</h1>
 			<ul class="todo">
-				<li>
-					<span>blablabla</span>
+				<li v-for="todo in listTodo">
+					<span>{{todo.todoText}}</span>
 					<span class="floatRight"><i class="fas fa-edit"></i></span>
 					<span class="floatRight"><i class="fas fa-check"></i></span>
 				</li>
 			</ul>
-			<input type="text">
+			<input v-on:keyup.enter="newTodo" v-model="newTextTodo" type="text">
 		</div>
 
 
