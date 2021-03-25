@@ -1,0 +1,27 @@
+body{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: grey;
+	height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container{
+	background-color: aqua;
+	padding: 20px;
+}
+.container h1{
+	margin: 0;
+}
+.container ul{
+	list-style: none;
+	padding: 0;
+}
+.container .floatRight{
+	float: right;
+	margin-left: 5px;
+}
