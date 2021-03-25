@@ -15,10 +15,11 @@
 		<div class="container">
 			<h1>i miei todo</h1>
 			<ul class="todo">
-				<li v-for="todo in listTodo">
-					<span>{{todo.todoText}}</span>
-					<span class="floatRight"><i class="fas fa-edit"></i></span>
-					<span class="floatRight"><i class="fas fa-check"></i></span>
+				<li v-for="todo in orderedlistTodo">
+					<span :class='todo.todoFinished == "nope" ? "" : "middleLine"'>{{todo.todoText}}</span>
+					<span v-if='todo.todoFinished == "nope"' @click='editTodo' class="floatRight"><i class="fas fa-edit"></i></span>
+					<span v-if='todo.todoFinished == "nope"' @click='checkTodo(todo)' class="floatRight"><i class="fas fa-check"></i></span>
+					<span @click='removeTodo' class="floatRight"><i class="fas fa-trash"></i></span>
 				</li>
 			</ul>
 			<input v-on:keyup.enter="newTodo" v-model="newTextTodo" type="text">

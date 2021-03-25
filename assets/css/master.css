@@ -11,7 +11,7 @@ body{
 }
 
 .container{
-	background-color: aqua;
+	background-color: rgb(43, 104, 104);
 	padding: 20px;
 }
 .container h1{
@@ -23,5 +23,12 @@ body{
 }
 .container .floatRight{
 	float: right;
-	margin-left: 5px;
+	margin-left: 10px;
+}
+.container input{
+	width: 100%;
+}
+.container ul span.middleLine{
+	text-decoration-line: line-through;
+	color: rgb(0, 190, 0);
 }

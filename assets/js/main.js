@@ -7,16 +7,20 @@ document.addEventListener('DOMContentLoaded', function () {
 			newTextTodo: '',
 			listTodo: [
 				{
-					todoText: 'vai in bagno'
+					todoText: 'vai in bagno',
+					todoFinished: 'nope',
 				},
 				{
-					todoText: 'fai la spesa'
+					todoText: 'fai la spesa',
+					todoFinished: 'nope',
 				},
 				{
-					todoText: 'compra il pane'
+					todoText: 'compra il pane',
+					todoFinished: 'nope',
 				},
 				{
-					todoText: 'osserva la pizza'
+					todoText: 'osserva la pizza',
+					todoFinished: 'nope',
 				},
 			],
 
@@ -25,20 +29,33 @@ document.addEventListener('DOMContentLoaded', function () {
 		methods: {
 
 			newTodo: function () {
-				console.log('new todo');
-				this.listTodo.push({
-					todoText: this.newTextTodo,
-				})
-
-			}
+				if (this.newTextTodo != '') {
+					this.listTodo.push({
+						todoText: this.newTextTodo,
+						todoFinished: 'nope',
+					})
+					this.newTextTodo = '';
+				}
+			},
+			editTodo: function name() {
+				console.log('edit');
+			},
+			checkTodo: function name(todo) {
+				console.log('check', todo);
+				todo.todoFinished = 'yep'
+				console.log(this.listTodo);
+			},
+			removeTodo: function name() {
+				console.log('remove');
+			},
 
 		},
 		computed: {
-			// // a computed getter
-			// reversedMessage: function () {
-			// 	// `this` points to the vm instance
-			// 	return this.message.split('').reverse().join('')
-			// }
+			orderedlistTodo: function () {
+				let todoNotFinished = this.listTodo.filter((e) => e.todoFinished == 'nope')
+				let todoFinished = this.listTodo.filter((e) => e.todoFinished == 'yep')
+				return [...todoNotFinished, ...todoFinished]
+			}
 		},
 		created: function () {
 
